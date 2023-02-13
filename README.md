@@ -34,9 +34,9 @@ python3 script.py
 
 We provide three files as examples.
 
-example/a.php has code with a testability tarpit for Progpilot https://github.com/enferas/TestabilityTarpits/blob/main/PHP/TestabilityPatterns/7_string_arithmetic_operations/Pattern%20String%20Arithmetic%20Operations.md
-example/b.php has code with a testability tarpit for WAP https://github.com/enferas/TestabilityTarpits/blob/main/PHP/TestabilityPatterns/28_static_methods/Pattern%20Static%20Methods.md
-ecample/c.php has the two tarpits.
+- example/a.php has code with a testability tarpit for Progpilot https://github.com/enferas/TestabilityTarpits/blob/main/PHP/TestabilityPatterns/7_string_arithmetic_operations/Pattern%20String%20Arithmetic%20Operations.md
+- example/b.php has code with a testability tarpit for WAP https://github.com/enferas/TestabilityTarpits/blob/main/PHP/TestabilityPatterns/28_static_methods/Pattern%20Static%20Methods.md
+- example/c.php has the two tarpits.
 
 The output of the script by using the example
 ```bash
