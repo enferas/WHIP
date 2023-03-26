@@ -43,34 +43,35 @@ The output of the script by using the example
 Scan original project
 cd /usr/src/myapp/wap; echo | timeout 900s ./wap -a -all -out /usr/src/myapp/wap/output_WAP/example.txt -p /usr/src/myapp/WHIP/example
 WAP Alerts: {('/usr/src/myapp/WHIP/example/a.php', 15)}
-Progpilot Alerts: {('/usr/src/myapp/WHIP/example/b.php', 17)}
-Joined Alerts: {('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/b.php', 17)}
+Progpilot Alerts: {('/usr/src/myapp/WHIP/example/b.php', 11)}
+Joined Alerts: {('/usr/src/myapp/WHIP/example/b.php', 11), ('/usr/src/myapp/WHIP/example/a.php', 15)}
 cd /usr/src/myapp/wap; echo | timeout 900s ./wap -a -all -out /usr/src/myapp/wap/output_WAP/example.txt -p /usr/src/myapp/WHIP/example
-Injected Lines: {('/usr/src/myapp/WHIP/example/b.php', 13), ('/usr/src/myapp/WHIP/example/c.php', 12), ('/usr/src/myapp/WHIP/example/a.php', 11), ('/usr/src/myapp/WHIP/example/c.php', 19)}
-WAP Alerts: {('/usr/src/myapp/WHIP/example/b.php', 13), ('/usr/src/myapp/WHIP/example/c.php', 13), ('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/c.php', 12), ('/usr/src/myapp/WHIP/example/a.php', 12), ('/usr/src/myapp/WHIP/example/a.php', 11)}
-Progpilot Alerts: {('/usr/src/myapp/WHIP/example/b.php', 13), ('/usr/src/myapp/WHIP/example/c.php', 12), ('/usr/src/myapp/WHIP/example/b.php', 14), ('/usr/src/myapp/WHIP/example/a.php', 11), ('/usr/src/myapp/WHIP/example/b.php', 17)}
-Joined Alerts: {('/usr/src/myapp/WHIP/example/b.php', 13), ('/usr/src/myapp/WHIP/example/c.php', 13), ('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/c.php', 12), ('/usr/src/myapp/WHIP/example/a.php', 12), ('/usr/src/myapp/WHIP/example/a.php', 11), ('/usr/src/myapp/WHIP/example/b.php', 14), ('/usr/src/myapp/WHIP/example/b.php', 17)}
+Injected Lines: {('/usr/src/myapp/WHIP/example/c.php', 12), ('/usr/src/myapp/WHIP/example/a.php', 11), ('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/b.php', 7)}
+WAP Alerts: {('/usr/src/myapp/WHIP/example/a.php', 12), ('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/b.php', 7), ('/usr/src/myapp/WHIP/example/c.php', 13), ('/usr/src/myapp/WHIP/example/a.php', 11), ('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/c.php', 12)}
+Progpilot Alerts: {('/usr/src/myapp/WHIP/example/b.php', 8), ('/usr/src/myapp/WHIP/example/b.php', 7), ('/usr/src/myapp/WHIP/example/a.php', 11), ('/usr/src/myapp/WHIP/example/c.php', 12), ('/usr/src/myapp/WHIP/example/b.php', 11)}
+Joined Alerts: {('/usr/src/myapp/WHIP/example/b.php', 8), ('/usr/src/myapp/WHIP/example/a.php', 12), ('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/b.php', 7), ('/usr/src/myapp/WHIP/example/c.php', 13), ('/usr/src/myapp/WHIP/example/a.php', 11), ('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/c.php', 12), ('/usr/src/myapp/WHIP/example/b.php', 11)}
 Iteration 1
 cd /usr/src/myapp/wap; echo | timeout 900s ./wap -a -all -out /usr/src/myapp/wap/output_WAP/example.txt -p /usr/src/myapp/WHIP/example
-WAP Alerts: {('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/b.php', 17)}
-Progpilot Alerts: {('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/b.php', 17), ('/usr/src/myapp/WHIP/example/c.php', 20)}
-Joined Alerts: {('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/b.php', 17), ('/usr/src/myapp/WHIP/example/c.php', 20)}
+WAP Alerts: {('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/b.php', 11), ('/usr/src/myapp/WHIP/example/a.php', 15)}
+Progpilot Alerts: {('/usr/src/myapp/WHIP/example/c.php', 20), ('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/b.php', 11)}
+Joined Alerts: {('/usr/src/myapp/WHIP/example/c.php', 20), ('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/c.php', 19), ('/usr/src/myapp/WHIP/example/b.php', 11)}
 Iteration 2
 cd /usr/src/myapp/wap; echo | timeout 900s ./wap -a -all -out /usr/src/myapp/wap/output_WAP/example.txt -p /usr/src/myapp/WHIP/example
-WAP Alerts: {('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/b.php', 17)}
-Progpilot Alerts: {('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/b.php', 17)}
-Joined Alerts: {('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/b.php', 17), ('/usr/src/myapp/WHIP/example/a.php', 15)}
+WAP Alerts: {('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/b.php', 11), ('/usr/src/myapp/WHIP/example/a.php', 15)}
+Progpilot Alerts: {('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/b.php', 11), ('/usr/src/myapp/WHIP/example/a.php', 15)}
+Joined Alerts: {('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/b.php', 11)}
 Scan final project
 cd /usr/src/myapp/wap; echo | timeout 900s ./wap -a -all -out /usr/src/myapp/wap/output_WAP/example.txt -p /usr/src/myapp/WHIP/example
-WAP Alerts: {('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/b.php', 17)}
-Progpilot Alerts: {('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/b.php', 17)}
-Joined Alerts: {('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/b.php', 17), ('/usr/src/myapp/WHIP/example/a.php', 15)}
+WAP Alerts: {('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/b.php', 11), ('/usr/src/myapp/WHIP/example/a.php', 15)}
+Progpilot Alerts: {('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/b.php', 11), ('/usr/src/myapp/WHIP/example/a.php', 15)}
+Joined Alerts: {('/usr/src/myapp/WHIP/example/a.php', 15), ('/usr/src/myapp/WHIP/example/c.php', 23), ('/usr/src/myapp/WHIP/example/b.php', 11)}
 >>> New only for WAP:
-('/usr/src/myapp/WHIP/example/b.php', 17)
+('/usr/src/myapp/WHIP/example/b.php', 11)
 >>> New only for Progpilot:
 ('/usr/src/myapp/WHIP/example/a.php', 15)
 >>> New for all the tools:
 ('/usr/src/myapp/WHIP/example/c.php', 23)
+
 ```
 
 The results show how our approach: 

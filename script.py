@@ -9,9 +9,9 @@ project_name = "example"
 Directory_to_wap = "/etc/wap-2.1"
 Directory_to_progpilot = "/etc/progpilot"
 
-#project_path = "/usr/src/myapp/WHIP/example"
-#Directory_to_wap = "/usr/src/myapp/wap"
-#Directory_to_progpilot = "/usr/src/myapp/progpilot"
+project_path = "/usr/src/myapp/WHIP/example"
+Directory_to_wap = "/usr/src/myapp/wap"
+Directory_to_progpilot = "/usr/src/myapp/progpilot"
 
 ## Extract the function calls and their line numbers from the php OPCODE
 ## You need to activate the opcache extension in PHP

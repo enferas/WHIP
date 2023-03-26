@@ -2,4 +2,4 @@
 
 $b = $_GET["p1"];
 $a = strip_tags($b);
-echo $a;
+echo "<input name=\"return\" value=\" $a \" />";

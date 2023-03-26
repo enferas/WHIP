@@ -8,4 +8,4 @@ function func1($x){
 $a = $_GET["p1"];
 $b = func1($a);
 $c = strip_tags($b);
-echo $c;
+echo "<input name=\"return\" value=\" $c \" />";
