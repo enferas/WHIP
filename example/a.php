@@ -5,5 +5,5 @@ function func1($a){
     return $a;
 }
 $a = $_GET["p1"];
-$a = func1($a);
-echo $a;
+$b = func1($a);
+echo $b;

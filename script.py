@@ -9,6 +9,10 @@ project_name = "example"
 Directory_to_wap = "/etc/wap-2.1"
 Directory_to_progpilot = "/etc/progpilot"
 
+#project_path = "/usr/src/myapp/WHIP/example"
+#Directory_to_wap = "/usr/src/myapp/wap"
+#Directory_to_progpilot = "/usr/src/myapp/progpilot"
+
 ## Extract the function calls and their line numbers from the php OPCODE
 ## You need to activate the opcache extension in PHP
 def gen_methods_assign_include(search_dir,path,project_name):
@@ -27,7 +31,7 @@ def gen_methods_assign_include(search_dir,path,project_name):
     #print("Run the command - find " + search_dir + " -name '*.php' > ./temp/temp_out.txt")
     os.system("find " + search_dir + " -name '*.php' > ./temp/temp_out.txt")
     php_files = open("./temp/temp_out.txt","r").read().split("\n")
-    print("Debug: Create file " + path+"methods/"+project_name+".txt")
+    #print("Debug: Create file " + path+"methods/"+project_name+".txt")
     methods_file = open(path+"methods/"+project_name+".txt","w")
     assign_file = open(path+"assign/"+project_name+".txt","w")
     include_file = open(path+"include/"+project_name+".txt","w")
@@ -36,7 +40,7 @@ def gen_methods_assign_include(search_dir,path,project_name):
     for php_file in php_files:
         if php_file == "":
             continue
-        print("Debug: " + php_file)
+        #print("Debug: " + php_file)
         try:
             #print("Run the command - php -d opcache.enable_cli=1 -d opcache.opt_debug_level=0x10000 -r 'opcache_compile_file(\""+php_file+"\");' 2> ./temp/temp_out.txt")
             os.system("php -d opcache.enable_cli=1 -d opcache.opt_debug_level=0x10000 -r 'opcache_compile_file(\""+php_file+"\");' 2> ./temp/temp_out.txt")
@@ -309,6 +313,29 @@ def uncomment_fake_sinks(project_path):
             fout.close()
     return injected_loc
 
+def comment_fake_sinks(project_path):
+    os.system(f"find {project_path} -name '*.php' > ./temp/list_of_file.txt")
+    dir_php_files = open("./temp/list_of_file.txt","r").read().split("\n")
+    injected_loc = set()
+    for dir_php_file in dir_php_files:
+        if dir_php_file == "":
+            continue
+        cond = False
+        php_file = open(dir_php_file,"r").read().split('\n')
+        for i in range(len(php_file)):
+            if "InjectedLineKeyWord" in php_file[i]:
+                if "//" not in php_file[i+1]:
+                    php_file[i+1] = "//" + php_file[i+1]
+                if "//" not in php_file[i+2]:
+                    php_file[i+2] = "//" + php_file[i+2]
+                cond = True
+        if cond == True:
+            fout = open(dir_php_file,"w")
+            for line in php_file:
+                fout.write(line+"\n")
+            fout.close()
+    return injected_loc
+
 def stitch(path,line_num):
     fff = open(path,"r").read().split('\n')
     if '//' not in fff[line_num-1]:
@@ -339,10 +366,10 @@ def scan(project_path,project_name,Directory_to_wap,Directory_to_progpilot):
 
 def extract_alerts(project_name):
     alerts = set()
-    wap_alerts = WAP.process_output(project_name)
+    wap_alerts = WAP.process_output(Directory_to_wap,project_name)
     print(f"WAP Alerts: {wap_alerts}")
     alerts = alerts.union(wap_alerts)
-    progpilot_alerts = Progpilot.process_output(project_name)
+    progpilot_alerts = Progpilot.process_output(Directory_to_progpilot,project_name)
     print(f"Progpilot Alerts: {progpilot_alerts}")
     alerts = alerts.union(progpilot_alerts)
     #comm1_alerts = Comm1.process_output(project_name)
@@ -375,8 +402,8 @@ inject(project_path,project_name)
 
 print("Scan original project")
 scan(project_path,project_name,Directory_to_wap,Directory_to_progpilot)
-original_wap_alerts = WAP.process_output(project_name)
-original_progpilot_alerts = Progpilot.process_output(project_name)
+original_wap_alerts = WAP.process_output(Directory_to_wap,project_name)
+original_progpilot_alerts = Progpilot.process_output(Directory_to_progpilot,project_name)
 original_alerts = extract_alerts(project_name)
 
 set_inject = uncomment_fake_sinks(project_path)
@@ -385,18 +412,19 @@ print(f"Injected Lines: {set_inject}")
 InferStitch(set_inject,project_path,project_name)
 
 print("Scan final project")
+comment_fake_sinks(project_path)
 scan(project_path,project_name,Directory_to_wap,Directory_to_progpilot)
-final_wap_alerts = WAP.process_output(project_name)
-final_progpilot_alerts = Progpilot.process_output(project_name)
+final_wap_alerts = WAP.process_output(Directory_to_wap,project_name)
+final_progpilot_alerts = Progpilot.process_output(Directory_to_progpilot,project_name)
 final_alerts = extract_alerts(project_name)
 
 print(">>> New only for WAP:")
-for alert in final_alerts:
+for alert in final_wap_alerts:
     if alert not in original_wap_alerts and alert in original_alerts:
         print(alert)
 
 print(">>> New only for Progpilot:")
-for alert in final_alerts:
+for alert in final_progpilot_alerts:
     if alert not in original_progpilot_alerts and alert in original_alerts:
         print(alert)
 

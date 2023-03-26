@@ -5,14 +5,7 @@ function func1($x){
     return $x;
 }
 
-class Foo{
-    static function func2($x){
-        echo $x;
-    }
-}
-
-
 $a = $_GET["p1"];
 $b = func1($a);
-$c = Foo::func2($b);
+$c = strip_tags($b);
 echo $c;

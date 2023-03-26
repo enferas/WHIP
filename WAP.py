@@ -1,16 +1,16 @@
 import os
 
 def scan_WAP(Directory_to_wap,project_path,project_name):
-    output_path = "/mnt/tp/code_whip/output_WAP"
+    output_path = Directory_to_wap + "/output_WAP"
     if os.path.isdir(output_path) == False:
         os.system(f"mkdir {output_path}")
     if os.path.exists(f"{output_path}/{project_name}.txt") == True:
         os.system(f"rm {output_path}/{project_name}.txt")
-    #print(f"cd {Directory_to_wap}; echo | timeout 900s ./wap -a -all -out {output_path}/{project_name}.txt -p {project_path}")
-    os.system(f"cd {Directory_to_wap}; echo | timeout 900s ./wap -a -all -out {output_path}/{project_name}.txt -p {project_path} > ./temp/temp.txt")
+    print(f"cd {Directory_to_wap}; echo | timeout 900s ./wap -a -all -out {output_path}/{project_name}.txt -p {project_path}")
+    os.system(f"cd {Directory_to_wap}; echo | timeout 900s ./wap -a -all -out {output_path}/{project_name}.txt -p {project_path} > temp.txt")
 
-def process_output(project_name):
-    output_path = "/mnt/tp/code_whip/output_WAP"
+def process_output(Directory_to_wap,project_name):
+    output_path = Directory_to_wap + "/output_WAP"
     lines = open(f"{output_path}/{project_name}.txt","r").read().split("\n")
     alerts = set()
     file = ""
